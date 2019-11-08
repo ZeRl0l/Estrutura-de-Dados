@@ -1,0 +1,41 @@
+#include <stdio.h>
+
+int main(int argc, char *argv[])
+{
+  int n,p,i,a,k;
+  int  aux1, intacto;
+  
+  scanf("%d",&n);
+  for(i=0;i<n; i++){
+    intacto = 0;
+    scanf("%d",&p);
+    
+    int vetor[p];
+    int vetor2[p];
+    
+    for(a=0;a<p;a++){
+        scanf("%d",&vetor[a]);
+        vetor2[a] = vetor[a];
+    }
+    
+    for(k=0;k<p;k++){
+        for(a=0;a<p;a++){
+            if(vetor[a]<vetor[k]){
+                aux1 = vetor[a];
+                vetor[a] = vetor[k];
+                vetor[k] = aux1;
+            } 
+        }
+    }
+    
+    for(a=0;a<p;a++){
+        if(vetor[a] == vetor2[a]){
+            intacto++;
+        }
+        
+    }
+
+    printf("%d\n",intacto); 
+
+  }
+}
